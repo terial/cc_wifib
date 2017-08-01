@@ -4,14 +4,14 @@ LDFLAGS+=-L/opt/vc/lib/ -lGLESv2 -lEGL -lopenmaxil -lbcm_host -lvcos -lvchiq_arm
 
 all: osd
 
-/tmp/%.o: %.c
+%.o: %.c
 	gcc -c -o $@ $< $(CPPFLAGS)
  
 
-osd: /tmp/main.o /tmp/frsky.o /tmp/render.o /tmp/telemetry.o /tmp/ltm.o /tmp/mavlink.o
-	gcc -o /tmp/$@ $^ $(LDFLAGS)
+osd: main.o frsky.o render.o telemetry.o ltm.o mavlink.o
+	gcc -o $@ $^ $(LDFLAGS)
 
 
 clean:
-	rm -f /tmp/osd /tmp/*.o /tmp/*~
+	rm -f osd *.o /*~
 
