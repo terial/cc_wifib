@@ -48,10 +48,10 @@ make library
 make install
 
 # Clone repository
-#echo "Cloning wifibroadcast repository and build,make,install..."
-#cd  $DIR_INSTALL/GitHub
-# rm -rf cc_wifib # remove existing cc_wifib repository if it exists
-#git clone https://github.com/terial/cc_wifib.git
+echo "Cloning wifibroadcast repository and build,make,install..."
+cd  $DIR_INSTALL/GitHub
+ rm -rf cc_wifib # remove existing cc_wifib repository if it exists
+git clone https://github.com/terial/cc_wifib.git
 
 # Copy configuration text files to /boot
 cp $DIR_INSTALL/GitHub/cc_wifib/config/apconfig.txt /boot/apconfig.txt
@@ -60,23 +60,37 @@ cp $DIR_INSTALL/GitHub/cc_wifib/config/osdconfig.txt /boot/osdconfig.txt
 cp $DIR_INSTALL/GitHub/cc_wifib/config/wifibroadcast-1.txt /boot/wifibroadcast-1.txt
 
 # Copy wifibroadcast files to DIR_INSTALL_WIFIBROADCAST
+ rm -rf $DIR_INSTALL_WIFIBROADCAST # remove existing wifibroadcast if it exists
 mkdir $DIR_INSTALL_WIFIBROADCAST
 mkdir $DIR_INSTALL_WIFIBROADCAST/wifibroadcast
-cp -a $DIR_INSTALL/wifibroadcast/. DIR_INSTALL_WIFIBROADCAST/wifibroadcast
+cp -a $DIR_INSTALL/GitHub/cc_wifib/wifibroadcast/. $DIR_INSTALL_WIFIBROADCAST/wifibroadcast
 mkdir $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_misc
-cp -a $DIR_INSTALL/wifibroadcast_misc/. DIR_INSTALL_WIFIBROADCAST/wifibroadcast_misc
+cp -a $DIR_INSTALL/GitHub/cc_wifib/wifibroadcast_misc/. $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_misc
 mkdir $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_osd
-cp -a $DIR_INSTALL/wifibroadcast_osd/. DIR_INSTALL_WIFIBROADCAST/wifibroadcast_osd
+cp -a $DIR_INSTALL/GitHub/cc_wifib/wifibroadcast_osd/. $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_osd
 mkdir $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_rc
-cp -a $DIR_INSTALL/wifibroadcast_rc/. DIR_INSTALL_WIFIBROADCAST/wifibroadcast_rc
+cp -a $DIR_INSTALL/GitHub/cc_wifib/wifibroadcast_rc/. $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_rc
 mkdir $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_status
-cp -a $DIR_INSTALL/wifibroadcast_status/. DIR_INSTALL_WIFIBROADCAST/wifibroadcast_status
+cp -a $DIR_INSTALL/GitHub/cc_wifib/wifibroadcast_status/. $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_status
 
 # Using dos2unix, copy the configuration files from /boot and rename as needed
 # using flag -n will always write to a new file.
-dos2unix -n /boot/osdconfig.txt DIR_INSTALL_WIFIBROADCAST/wifibroadcast_osd/osdconfig.h
-dos2unix -n /boot/joyconfig.txt DIR_INSTALL_WIFIBROADCAST/wifibroadcast_rc/rctx.h > /dev/null 2>&1
-dos2unix -n /boot/apconfig.txt /tmp/apconfig.txt # unused until ap is setup
+dos2unix -n /boot/osdconfig.txt $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_osd/osdconfig.h
+dos2unix -n /boot/joyconfig.txt $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_rc/rctx.h > /dev/null 2>&1
+#dos2unix -n /boot/apconfig.txt /tmp/apconfig.txt # unused until ap is setup
+
+# Build wifibroadcast
+cd $DIR_INSTALL_WIFIBROADCAST/wifibroadcast
+make all
+cd $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_osd
+make all
+cd $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_rc
+chmod 755 build.sh
+./build.sh
+cd $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_status
+make all
+
+
 
 
 
