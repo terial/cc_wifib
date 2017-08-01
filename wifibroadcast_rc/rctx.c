@@ -18,7 +18,8 @@
 #include <getopt.h>
 #include "lib.h"
 
-#include "/tmp/rctx.h"
+#joyconfig.txt from /boot copied using dos2unix as rctx.h to current working directory
+#include "rctx.h"
 
 #define UPDATE_INTERVAL 2000 // read Joystick every 2 ms or 500x per second
 #define UPDATE_NTH_TIME 6 // send out data every 6th time or every 12ms or 83.333x per second
