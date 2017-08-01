@@ -1,5 +1,11 @@
 #!/bin/bash
 #
+# AUTOMATIC RX/TX DETECTION OVERIDE
+# ===========================================================
+# This setting specifies if wifibroadcast should be tx or rx instead of automatically deciding based
+# on if a raspicam is detected. Set to TX of RX
+TYPE=TX
+#
 # Common settings (need to be kept in sync for both TX and RX!)
 # ============================================================
 #
