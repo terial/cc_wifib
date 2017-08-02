@@ -17,7 +17,7 @@ set -x
 # Install from directory
 DIR_INSTALL=$(pwd)
 # Install to directory
-DIR_INSTALL_WIFIBROADCAST=/usr/local/bin/wifibroadcast
+DIR_INSTALL_WIFIBROADCAST=/opt/wifibroadcast
 
 # Get updated and install packages
 echo "Updating repository and installing required packages..."
