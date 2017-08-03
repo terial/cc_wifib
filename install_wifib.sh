@@ -14,10 +14,8 @@ set -x
 # Get confige stuff
 #. $SETUP_DIR/config.env # Uncomment if part of the master companion computer install
 
-# Install from directory
-DIR_INSTALL=$(pwd)
-# Install to directory
-DIR_INSTALL_WIFIBROADCAST=/opt/wifibroadcast
+# Install directory for wifibroadcast
+DIR_INSTALL_WIFIBROADCAST=$INSTALL_DIR/wifibroadcast
 
 # Get updated and install packages
 echo "Updating repository and installing required packages..."
@@ -31,15 +29,15 @@ apt-get install -y libsdl1.2-dev # For WifiBroadcast_rc
 apt-get install -y dos2unix # convert text files from /boot from dos format to unix
 
 # Check if GitHub folder already exists
-if [ ! -d $DIR_INSTALL/GitHub ]; then
-    mkdir $DIR_INSTALL/GitHub
+if [ ! -d /home/$INSTALL_USER/GitHub ]; then
+    mkdir /home/$INSTALL_USER/GitHub
 else
-        echo "$INSTALL_USER/GitHub already exists!"
+    echo "$INSTALL_USER/GitHub already exists!"
 fi
 
 # Build and Install OpenVG for wifibroadcast_osd
 echo "Cloning OpenVG repository and build,make,install..."
-cd $DIR_INSTALL/GitHub
+cd /home/$INSTALL_USER/GitHub
  rm -rf openvg # remove existing openvg repository if it exists
 git clone https://github.com/ajstarks/openvg.git # OpendVG for raspberry pi
 cd openvg
@@ -49,15 +47,15 @@ make install
 
 # Clone repository
 echo "Cloning wifibroadcast repository and build,make,install..."
-cd  $DIR_INSTALL/GitHub
+cd /home/$INSTALL_USER/GitHub
  rm -rf cc_wifib # remove existing cc_wifib repository if it exists
 git clone https://github.com/terial/cc_wifib.git
 
 # Copy configuration text files to /boot
-cp $DIR_INSTALL/GitHub/cc_wifib/config/apconfig.txt /boot/apconfig.txt
-cp $DIR_INSTALL/GitHub/cc_wifib/config/joyconfig.txt /boot/joyconfig.txt
-cp $DIR_INSTALL/GitHub/cc_wifib/config/osdconfig.txt /boot/osdconfig.txt
-cp $DIR_INSTALL/GitHub/cc_wifib/config/wifibroadcast-1.txt /boot/wifibroadcast-1.txt
+cp /home/$INSTALL_USER/GitHub/cc_wifib/config/apconfig.txt /boot/apconfig.txt
+cp /home/$INSTALL_USER/GitHub/cc_wifib/config/joyconfig.txt /boot/joyconfig.txt
+cp /home/$INSTALL_USER/GitHub/cc_wifib/config/osdconfig.txt /boot/osdconfig.txt
+cp /home/$INSTALL_USER/GitHub/cc_wifib/config/wifibroadcast-1.txt /boot/wifibroadcast-1.txt
 
 # Copy wifibroadcast files to DIR_INSTALL_WIFIBROADCAST
  rm -rf $DIR_INSTALL_WIFIBROADCAST # remove existing wifibroadcast if it exists
