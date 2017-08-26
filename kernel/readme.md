@@ -8,5 +8,5 @@ https://github.com/raspberrypi/linux/archive/1423ac8bfbfb2a9d092b604c676e7a58a5f
 Raspberry 4.9.35 kernel sources:
 https://github.com/raspberrypi/linux/archive/be2540e540f5442d7b372208787fb64100af0c54.tar.gz
 
-Extract tar
+Extract tar:
 tar -xvf "file".tar
