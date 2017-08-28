@@ -7,5 +7,9 @@ Head to the Wiki page for instructions, features and Download links: https://git
 
 _**IMPORTANT: Read and follow the [wiring instructions](https://github.com/bortek/EZ-WifiBroadcast/wiki/Wiring)**_
 
+
+Keeping interface names consistent in raspbian jessie, raspbian stretch switch to new naming... need to investigate.
 http://www.debianhelp.co.uk/udev.htm
+https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=111773
+
 
