@@ -1,16 +1,20 @@
 #!/bin/bash
 #
-# AUTOMATIC RX/TX DETECTION OVERIDE
+# WifiBroadcast enable switch
 # ===========================================================
-# This setting specifies if wifibroadcast should be tx or rx instead of automatically deciding based
-# on if a raspicam is detected. Set to TX of RX
+# Set to "Y" to enable WifiBroadcast or "N" to disable WifiBroadcast
+ENABLED=Y
+#
+# ============================================================
+# This setting specifies if WifiBroadcast should be set as tx or rx 
+# Set to "TX" for tx mode or "RX" for rx mode
 TYPE=TX
 #
 # Common settings (need to be kept in sync for both TX and RX!)
 # ============================================================
 #
 # Desired frequency in MHz
-FREQ=2472
+FREQ=5745
 #
 # Set to "Y" on the RX for auto-scanning. Frequency still has to be set on TX!
 # Feature might be buggy or not work at all!
@@ -65,7 +69,7 @@ BITRATE=3
 #
 #
 # Choose between 30, 48, 59.9
-FPS=48
+FPS=59.9
 #
 #
 # FEC SETTINGS
@@ -109,18 +113,18 @@ HEIGHT=720
 KEYFRAMERATE=5
 #
 # Set additional raspivid parameters here
-EXTRAPARAMS="-cd H264 -n -fl -ih -pf high -ex sports -mm matrix -awb horizon"
+EXTRAPARAMS="-cd H264 -n -fl -vf -ih -pf high -md 5 -ex sports -mm matrix -awb horizon"
 #
 #
 # Serial port and baudrate (19200 is minimum) to use for the R/C connection between air Pi and flight control
 # Set this to "/dev/serial0" for Pi onboard serial port or  "/dev/ttyUSB0" for USB-to-serial adapter
-FC_RC_SERIALPORT=/dev/serial0
-FC_RC_BAUDRATE=19200
+FC_RC_SERIALPORT=/dev/ttyAMA0
+FC_RC_BAUDRATE=921600
 #
 # Serial port and baudrate to use for the telemetry connection between air Pi and flight control
 # Set this to "/dev/serial0" for Pi onboard serial port or  "/dev/ttyUSB0" for USB-to-serial adapter
-FC_TELEMETRY_SERIALPORT=/dev/serial0
-FC_TELEMETRY_BAUDRATE=57600
+FC_TELEMETRY_SERIALPORT=/dev/ttyAMA0
+FC_TELEMETRY_BAUDRATE=921600
 #
 #
 #
