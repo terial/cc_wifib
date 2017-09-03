@@ -4,68 +4,68 @@
 
 case $BITRATE in
     1)
-	UPLINK_WIFI_BITRATE=6
-	TELEMETRY_WIFI_BITRATE=6
-	if [ "$CTS_PROTECTION" == "Y" ]; then
-	    VIDEO_WIFI_BITRATE=12
-	else
-	    VIDEO_WIFI_BITRATE=6
-	fi
-	if [ "$TXMODE" != "single" ]; then
-	    VIDEO_WIFI_BITRATE=12
-	fi
-	BITRATE=2500000
+        UPLINK_WIFI_BITRATE=6
+        TELEMETRY_WIFI_BITRATE=6
+        if [ "$CTS_PROTECTION" == "Y" ]; then
+            VIDEO_WIFI_BITRATE=12
+        else
+            VIDEO_WIFI_BITRATE=6
+        fi
+        if [ "$TXMODE" != "single" ]; then
+            VIDEO_WIFI_BITRATE=12
+        fi
+        BITRATE=2500000
     ;;
     2)
-	UPLINK_WIFI_BITRATE=12
-	TELEMETRY_WIFI_BITRATE=12
-	if [ "$CTS_PROTECTION" == "Y" ]; then
-	    VIDEO_WIFI_BITRATE=18
-	else
-	    VIDEO_WIFI_BITRATE=12
-	fi
-	if [ "$TXMODE" != "single" ]; then
-	    VIDEO_WIFI_BITRATE=18
-	fi
-	BITRATE=4500000
+        UPLINK_WIFI_BITRATE=12
+        TELEMETRY_WIFI_BITRATE=12
+        if [ "$CTS_PROTECTION" == "Y" ]; then
+            VIDEO_WIFI_BITRATE=18
+        else
+            VIDEO_WIFI_BITRATE=12
+        fi
+        if [ "$TXMODE" != "single" ]; then
+            VIDEO_WIFI_BITRATE=18
+        fi
+        BITRATE=4500000
     ;;
     3)
-	UPLINK_WIFI_BITRATE=18
-	TELEMETRY_WIFI_BITRATE=18
-	if [ "$CTS_PROTECTION" == "Y" ]; then
-	    VIDEO_WIFI_BITRATE=24
-	else
-	    VIDEO_WIFI_BITRATE=18
-	fi
-	if [ "$TXMODE" != "single" ]; then
-	    VIDEO_WIFI_BITRATE=24
-	fi
-	BITRATE=6000000
+	    UPLINK_WIFI_BITRATE=18
+        TELEMETRY_WIFI_BITRATE=18
+        if [ "$CTS_PROTECTION" == "Y" ]; then
+            VIDEO_WIFI_BITRATE=24
+        else
+            VIDEO_WIFI_BITRATE=18
+        fi
+        if [ "$TXMODE" != "single" ]; then
+            VIDEO_WIFI_BITRATE=24
+        fi
+        BITRATE=6000000
     ;;
     4)
-	UPLINK_WIFI_BITRATE=18
-	TELEMETRY_WIFI_BITRATE=24
-	if [ "$CTS_PROTECTION" == "Y" ]; then
-	    VIDEO_WIFI_BITRATE=36
-	else
-	    VIDEO_WIFI_BITRATE=24
-	fi
-	if [ "$TXMODE" != "single" ]; then
-	    VIDEO_WIFI_BITRATE=36
-	fi
-	BITRATE=8500000
+        UPLINK_WIFI_BITRATE=18
+        TELEMETRY_WIFI_BITRATE=24
+        if [ "$CTS_PROTECTION" == "Y" ]; then
+            VIDEO_WIFI_BITRATE=36
+        else
+            VIDEO_WIFI_BITRATE=24
+        fi
+        if [ "$TXMODE" != "single" ]; then
+            VIDEO_WIFI_BITRATE=36
+        fi
+        BITRATE=8500000
     ;;
     5)
-	UPLINK_WIFI_BITRATE=24
-	TELEMETRY_WIFI_BITRATE=36
-	if [ "$CTS_PROTECTION" == "Y" ]; then
-	    VIDEO_WIFI_BITRATE=48
-	else
-	    VIDEO_WIFI_BITRATE=36
-	fi
-	if [ "$TXMODE" != "single" ]; then
-	    VIDEO_WIFI_BITRATE=48
-	fi
-	BITRATE=11500000
+        UPLINK_WIFI_BITRATE=24
+        TELEMETRY_WIFI_BITRATE=36
+        if [ "$CTS_PROTECTION" == "Y" ]; then
+            VIDEO_WIFI_BITRATE=48
+        else
+            VIDEO_WIFI_BITRATE=36
+        fi
+        if [ "$TXMODE" != "single" ]; then
+            VIDEO_WIFI_BITRATE=48
+        fi
+		BITRATE=11500000
     ;;
 esac
